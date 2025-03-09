@@ -10,7 +10,7 @@
                     @dragleave="isDragging = false"
                     @drop="handleDrop"
                     class="border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors"
-                    :class="isDragging ? 'border-primary-dark bg-primary-light' : 'border-neutral hover:border-primary-dark'"
+                    :class="isDragging ? 'border-[#8B5E3C] bg-primary-light' : 'border-[#4B4B4B] hover:border-primary-dark'"
                     >
                         <input type="file" accept="image/*" @change="handleFileChange" class="hidden" ref="fileInput" />
                         <template v-if="preview">
@@ -18,7 +18,7 @@
                                 <img :src="preview" alt="Preview" class="max-h-48 mx-auto rounded" />
                                 <button
                                     @click.stop="handleRemove"
-                                    class="absolute top-0 right-0 bg-danger text-white rounded-full p-1 hover:bg-danger transition-colors"
+                                    class="absolute top-0 right-0 bg-[#B22222] text-white rounded-full p-1 hover:bg-[#B22222] transition-colors"
                                 >
                                     <XIcon class="w-4 h-4" />
                                 </button>
@@ -26,7 +26,7 @@
                         </template>
                         <template v-else>
                             <div class="flex flex-col items-center">
-                                <UploadIcon class="w-12 h-12 text-neutral mb-2" />
+                                <UploadIcon class="w-12 h-12 text-[#4B4B4B] mb-2" />
                                 <p class="text-neutral">Drag & drop an image here, or click to select</p>
                             </div>
                         </template>
@@ -43,7 +43,7 @@
                     <button
                         @click="uploadImage"
                         :disabled="!file || isUploading"
-                        class="cursor-pointer mt-4 w-full bg-primary text-white py-2 rounded hover:bg-primary-dark transition"
+                        class="cursor-pointer mt-4 w-full bg-[#A67C52] text-white py-2 rounded hover:bg-[#8B5E3C] transition"
                         >
                         {{ isUploading ? "Uploading..." : "Upload Image" }}
                     </button>
@@ -54,10 +54,10 @@
             <div v-if="isUploading" class="flex items-center justify-center w-1/2 h-[80vh]">
                 <div class="flex-col gap-4 w-full flex items-center justify-center">
                     <div
-                        class="w-20 h-20 border-4 border-transparent text-success text-4xl animate-spin flex items-center justify-center border-t-success rounded-full"
+                        class="w-20 h-20 border-4 border-transparent text-[#6FAF7A] text-4xl animate-spin flex items-center justify-center border-t-[#6FAF7A] rounded-full"
                         >
                         <div
-                            class="w-16 h-16 border-4 border-transparent text-info text-2xl animate-spin flex items-center justify-center border-t-info rounded-full"
+                            class="w-16 h-16 border-4 border-transparent text-[#6A8CAF] text-2xl animate-spin flex items-center justify-center border-t-[#6A8CAF] rounded-full"
                         ></div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                     <!-- Detected Image -->
                     <div class="flex items-center justify-between w-full">
                     <h3 class="text-[20px] font-bold">Detected Image</h3>
-                    <button @click="toggleImageVisibility" class="text-white bg-primary-dark w-[120px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-primary">
+                    <button @click="toggleImageVisibility" class="text-white bg-[#8B5E3C] w-[120px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-primary">
                         {{ showImage ? "Hide Image" : "Show Image" }}
                     </button>
                     </div>
@@ -99,11 +99,14 @@
                     <!-- Grad-CAM & Condition Info -->
                     <div>
                     <div class="flex items-center justify-between">
-                        <button @click="toggleGradCamVisibility(index)" class="text-white bg-primary-dark w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-primary">
+                        <button @click="toggleGradCamVisibility(index)" class="text-white bg-[#8B5E3C] w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-primary">
                         {{ showGradCam[index] ? "Hide Analysis Image" : "Show Analysis Image" }}
                         </button>
-                        <button @click="toggleConditionInfo(prediction.predicted_class)" class="text-white bg-accent w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-accent-dark">
+                        <button @click="toggleConditionInfo(prediction.predicted_class)" class="text-white bg-[#D4A373] w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-accent-dark">
                         {{ showConditionInfo[prediction.predicted_class] ? "Hide Info" : "Show Info" }}
+                        </button>
+                        <button @click="chatWithCondition(prediction.predicted_class)" class="text-white bg-[#6ba174] hover:bg-[#6ba174]/90 w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors">
+                            Chat with SkiSen
                         </button>
                     </div>
         
@@ -116,45 +119,51 @@
                     </div>
         
                     <!-- Condition Info -->
-                    <div v-if="showConditionInfo[prediction.predicted_class]" class="mt-4">
-                        <div v-if="isLoadingInfo && !conditionInfo[prediction.predicted_class]" class="mt-4">
-                        <div class="flex-col gap-4 w-full flex items-center justify-center">
-                            <div
-                            class="w-20 h-20 border-4 border-transparent text-success text-4xl animate-spin flex items-center justify-center border-t-success rounded-full"
-                            >
-                            <div
-                                class="w-16 h-16 border-4 border-transparent text-info text-2xl animate-spin flex items-center justify-center border-t-info rounded-full"
-                            ></div>
+                        <div v-if="showConditionInfo[prediction.predicted_class]" class="mt-4">
+                            <div v-if="isLoadingInfo && !conditionInfo[prediction.predicted_class]" class="mt-4">
+                            <div class="flex-col gap-4 w-full flex items-center justify-center">
+                                <div
+                                class="w-20 h-20 border-4 border-transparent text-[#6FAF7A] text-4xl animate-spin flex items-center justify-center border-t-[#6FAF7A] rounded-full"
+                                >
+                                <div
+                                    class="w-16 h-16 border-4 border-transparent text-[#6A8CAF] text-2xl animate-spin flex items-center justify-center border-t-[#6A8CAF] rounded-full"
+                                ></div>
+                                </div>
+                            </div>
+                            </div>
+                            <div v-if="!isLoadingInfo && conditionInfo[prediction.predicted_class]" class="gap-4 max-h-[32vh] overflow-auto">
+                                <h3 class="text-[20px] font-bold">Condition Information</h3>
+                                <div v-for="(info, key) in conditionInfo[prediction.predicted_class]" :key="key" class="border-b border-[#4B4B4B] pb-4 mt-2">
+                                    <button 
+                                    @click="toggleConditionDetail(key, prediction.predicted_class)" 
+                                    class="w-full text-left py-2 px-4 text-lg font-semibold bg-[#F5F5F5] rounded-md hover:bg-[#4B4B4B]/10 transition">
+                                    {{ key }}
+                                    </button>
+                                    <div v-if="showConditionDetail[prediction.predicted_class][key]" class="ml-4 mt-2 text-[14px] text-neutral">
+                                        <div v-if="Array.isArray(info)">
+                                            <template v-if="info.length > 0 && typeof info[0] === 'object'">
+                                                <ul class="list-disc ml-4">
+                                                    <li v-for="(ref, i) in info" :key="i">
+                                                        <a :href="ref.url" target="_blank" class="text-[#6A8CAF] hover:text-info-dark">
+                                                            {{ ref.title }}
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </template>
+                                            <template v-else>
+                                                <p>{{ info.join(", ") }}</p>
+                                            </template>
+                                        </div>
+                                        <p v-else>{{ info }}</p>
+                                    </div>
+                                </div>                           
                             </div>
                         </div>
-                        </div>
-                        <div v-if="!isLoadingInfo && conditionInfo[prediction.predicted_class]" class="gap-4 max-h-[32vh] overflow-auto">
-                        <h3 class="text-[20px] font-bold">Condition Information</h3>
-                        <div v-for="(info, key) in conditionInfo[prediction.predicted_class]" :key="key" class="border-b border-neutral pb-4 mt-2">
-                            <button 
-                            @click="toggleConditionDetail(key, prediction.predicted_class)" 
-                            class="w-full text-left py-2 px-4 text-lg font-semibold bg-neutral-light rounded-md hover:bg-neutral transition">
-                            {{ key }}
-                            </button>
-                            <div v-if="showConditionDetail[prediction.predicted_class][key]" class="ml-4 mt-2 text-[14px] text-neutral">
-                            <p v-if="Array.isArray(info)">{{ info.join(", ") }}</p>
-                            <p v-else>{{ info }}</p>
-                            </div>
-                        </div>
-                        <div class="mt-4">
-                            <h5 class="text-lg font-bold">References</h5>
-                            <ul class="list-disc pl-6">
-                            <li v-for="ref in conditionInfo[prediction.predicted_class].References" :key="ref.url">
-                                <a :href="ref.url" target="_blank" class="underline text-info hover:text-info-dark">{{ ref.title }}</a>
-                            </li>
-                            </ul>
-                        </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
             </div>
         </div>
+        <Chatbot ref="chatbotRef" />
     </Layout>
 </template>
 
@@ -163,6 +172,7 @@ import Layout from "@/Layouts/Main/Index.vue";
 import { ref } from "vue";
 import axios from "axios";
 import { UploadIcon, XIcon } from "lucide-vue-next";
+import Chatbot from '@/Components/Chatbot/Index.vue';
 
 const file = ref(null);
 const preview = ref(null);
@@ -241,9 +251,7 @@ const fetchConditionInfo = async (condition) => {
     }
 };
 
-const toggleImageVisibility = () => {
-    showImage.value = !showImage.value;
-};
+const toggleImageVisibility = () => { showImage.value = !showImage.value; };
 
 const toggleGradCamVisibility = (index) => {
     showGradCam.value[index] = !showGradCam.value[index];
@@ -263,75 +271,18 @@ const toggleConditionDetail = (key, condition) => {
 
 const getConfidenceClass = (confidence) => {
     if (confidence > 0.8) {
-        return 'text-success';
+        return 'text-[#6FAF7A]';
     } else if (confidence > 0.5) {
-        return 'text-warning';
+        return 'text-[#D4A373]';
     } else {
-        return 'text-danger';
+        return 'text-[#B22222]';
+    }
+};
+
+const chatbotRef = ref(null);
+const chatWithCondition = (condition) => {
+    if (chatbotRef.value && chatbotRef.value.openChatWithCondition) {
+        chatbotRef.value.openChatWithCondition(condition);
     }
 };
 </script>
-
-<style scoped>
-.bg-primary {
-    background-color: #A67C52;
-}
-.bg-primary-dark {
-    background-color: #8B5E3C;
-}
-.bg-primary-light {
-    background-color: #E6D4C1;
-}
-
-.bg-accent {
-    background-color: #D4A373;
-}
-.bg-accent-dark {
-    background-color: #B17B55;
-}
-
-.bg-success {
-    background-color: #6FAF7A;
-}
-.bg-warning {
-    background-color: #D9A441;
-}
-.bg-danger {
-    background-color: #B22222;
-}
-
-.text-success {
-    color: #6FAF7A;
-}
-.text-warning {
-    color: #D9A441;
-}
-.text-danger {
-    color: #B22222;
-}
-.text-info {
-    color: #6A8CAF;
-}
-.text-info-dark {
-    color: #3E6B8E;
-}
-
-/* Spinner border colors */
-.border-t-success {
-    border-top-color: #6FAF7A;
-}
-.border-t-info {
-    border-top-color: #6A8CAF;
-}
-
-/* Custom Neutral Colors */
-.text-neutral {
-    color: #4B4B4B;
-}
-.border-neutral {
-    border-color: #A3A3A3;
-}
-.bg-neutral-light {
-    background-color: #F5F5F5;
-}
-</style>

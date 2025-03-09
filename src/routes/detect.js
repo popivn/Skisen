@@ -20,5 +20,6 @@ const router = express.Router();
 router.get('/', DetectController.index);
 router.post('/predict', upload.single('image'), DetectController.predict);
 router.post('/explain', DetectController.explain);
+router.post('/chat', DetectController.chat);
 
 export default router;

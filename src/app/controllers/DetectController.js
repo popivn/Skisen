@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import fetch from 'node-fetch';
 import FormData from 'form-data';
 import dotenv from 'dotenv';
+
 import { console } from 'inspector';
 
 dotenv.config();
@@ -139,6 +140,61 @@ class DetectController {
         }
     }
     
+    async chat(req, res) {
+        try {
+            const { message } = req.body;
+        
+            if (!message) {
+                return res.status(400).json({ error: 'No message provided' });
+            }
+        
+            const { franc } = await import('franc');
+            const langCode = franc(message); 
+            const languageMapping = {
+                vie: "tiếng Việt",
+                eng: "English",
+            };
+
+            const languageToUse = languageMapping[langCode] || "tiếng Việt";
+
+            const systemPrompt = `Bạn là một bác sĩ AI chuyên về y học, đặc biệt là các bệnh da liễu, là một chatbot AI cuar SkiSen web - một website chuẩn đoán bệnh trên da. Hãy trả lời bằng ${languageToUse} với câu trả lời ngắn gọn và dễ hiểu.`;
+
+            const openAIResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-4-turbo", // hoặc "gpt-3.5-turbo" nếu muốn
+                    messages: [
+                    {
+                        role: "system",
+                        content: systemPrompt
+                    },
+                    {
+                        role: "user",
+                        content: message
+                    }
+                    ],
+                    max_tokens: 500,
+                    temperature: 0.7
+                })
+            });
+        
+            if (!openAIResponse.ok) {
+              return res.status(500).json({ error: 'Error calling OpenAI API' });
+            }
+        
+            const openAIResult = await openAIResponse.json();
+            const responseMessage = openAIResult.choices[0].message.content;
+        
+            res.json({ response: responseMessage });
+          } catch (error) {
+            console.error("Error in chat backend:", error);
+            res.status(500).json({ error: 'Internal Server Error' });
+          }
+        }
 }
 
 export default new DetectController();
