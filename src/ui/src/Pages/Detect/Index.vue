@@ -1,7 +1,7 @@
 <template>
     <Layout>
-        <div class="flex items-stretch w-full h-full">
-            <div :class="isUploading || result?.predictions ? 'w-1/2' : 'w-full'" class="flex items-center justify-center">
+        <div class="flex flex-col lg:flex-row lg:items-stretch w-full h-full gap-4">
+            <div :class="isUploading || result?.predictions ? 'w-full lg:w-1/2' : 'w-full'" class="flex items-center justify-center">
                 <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md transition-all">
                     <h2 class="text-2xl font-bold mb-4">Image Upload</h2>
                     <div
@@ -51,7 +51,7 @@
             </div>
     
             <!-- Loading Indicator -->
-            <div v-if="isUploading" class="flex items-center justify-center w-1/2 h-[80vh]">
+            <div v-if="isUploading" class="flex items-center justify-center w-full lg:w-1/2 h-[80vh]">
                 <div class="flex-col gap-4 w-full flex items-center justify-center">
                     <div
                         class="w-20 h-20 border-4 border-transparent text-[#6FAF7A] text-4xl animate-spin flex items-center justify-center border-t-[#6FAF7A] rounded-full"
@@ -64,7 +64,7 @@
             </div>
     
             <!-- Prediction Results Section -->
-            <div v-if="result?.predictions && !isUploading" class="w-1/2 p-4 max-h-[80vh] overflow-auto">
+            <div v-if="result?.predictions && !isUploading" class="w-full lg:w-1/2 p-4 max-h-[80vh] overflow-auto">
                 <h2 class="text-[24px] font-bold mb-2">Prediction Results</h2>
                 <div v-for="(prediction, index) in result.predictions" :key="index" class="flex flex-col mb-4 gap-4">
                     <!-- Detected Image -->
@@ -98,15 +98,17 @@
         
                     <!-- Grad-CAM & Condition Info -->
                     <div>
-                    <div class="flex items-center justify-between">
-                        <button @click="toggleGradCamVisibility(index)" class="text-white bg-[#8B5E3C] w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-primary">
-                        {{ showGradCam[index] ? "Hide Analysis Image" : "Show Analysis Image" }}
+                    <div class="flex items-center justify-between gap-2">
+                        <button @click="toggleGradCamVisibility(index)" class="text-white bg-[#8B5E3C] w-1/3 lg:w-[200px] px-2 lg:px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-primary">
+                        <span class="block lg:hidden">Image</span>
+                        <span class="hidden lg:block">{{ showGradCam[index] ? "Hide Analysis Image" : "Show Analysis Image" }}</span>
                         </button>
-                        <button @click="toggleConditionInfo(prediction.predicted_class)" class="text-white bg-[#D4A373] w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-accent-dark">
-                        {{ showConditionInfo[prediction.predicted_class] ? "Hide Info" : "Show Info" }}
+                        <button @click="toggleConditionInfo(prediction.predicted_class)" class="text-white bg-[#D4A373] w-1/3 lg:w-[200px] px-2 lg:px-4 py-1.5 cursor-pointer rounded transition-colors hover:bg-accent-dark">
+                        <span class="hidden lg:block">{{ showConditionInfo[prediction.predicted_class] ? "Hide Info" : "Show Info" }}</span>
+                        <span class="block lg:hidden">Info</span>
                         </button>
-                        <button @click="chatWithCondition(prediction.predicted_class)" class="text-white bg-[#6ba174] hover:bg-[#6ba174]/90 w-[200px] px-4 py-1.5 cursor-pointer rounded transition-colors">
-                            Chat with SkiSen
+                        <button @click="chatWithCondition(prediction.predicted_class)" class="text-white bg-[#6ba174] hover:bg-[#6ba174]/90 w-1/3 lg:w-[200px] px-2 lg:px-4 py-1.5 cursor-pointer rounded transition-colors">
+                            Chat <span class="hidden lg:block">with SkiSen</span>
                         </button>
                     </div>
         
