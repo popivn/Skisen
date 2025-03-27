@@ -105,8 +105,7 @@ async def analyze(file: UploadFile = File(...)):
             "x1": x1, "y1": y1, "x2": x2, "y2": y2,
             "predicted_class": predicted_label,
             "confidence": round(confidence, 2),
-            "gradcam_image": f"http://localhost:5000/{gradcam_path}",
-            "explanation": f"The highlighted regions in the image show the most important areas used by the model to identify {predicted_label}. These areas are where the model found key features related to the disease."
+            "gradcam_image": f"http://localhost:5000/{gradcam_path}"
         })
     
     output_path = "static/result_detected.png"

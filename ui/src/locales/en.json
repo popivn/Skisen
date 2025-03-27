@@ -1,0 +1,317 @@
+{
+    "app": {
+      "name": "SkiSen",
+      "fullName": "SkiSen - AI Dermatology Diagnosis",
+      "description": "AI application for quick, accurate, and easy-to-use dermatology diagnosis"
+    },
+    "nav": {
+      "home": "Home",
+      "diagnosis": "Diagnosis",
+      "chatbot": "Q&A",
+      "contact": "Contact",
+      "darkMode": "Dark Mode",
+      "language": "Language",
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "faq": "FAQ"
+    },
+    "home": {
+      "hero": {
+        "title": "Take a photo – Get results instantly",
+        "description": "SkiSen uses advanced artificial intelligence to diagnose skin conditions, helping you get quick and accurate results.",
+        "cta": "Start Diagnosis"
+      },
+      "features": {
+        "title": "Key Features",
+        "diagnosis": {
+          "title": "Quick Diagnosis",
+          "description": "Upload your skin image and receive diagnostic results in seconds with high accuracy."
+        },
+        "chatbot": {
+          "title": "AI Q&A",
+          "description": "Chat with intelligent AI to better understand your skin condition and treatment methods."
+        },
+        "security": {
+          "title": "Data Security",
+          "description": "Your medical data is securely protected with the highest security standards."
+        }
+      },
+      "howItWorks": {
+        "title": "How It Works",
+        "step1": {
+          "title": "Upload Image",
+          "description": "Take a photo of the skin area to be diagnosed and upload it to the SkiSen system."
+        },
+        "step2": {
+          "title": "AI Analysis",
+          "description": "Advanced AI system analyzes the image and compares it with thousands of cases."
+        },
+        "step3": {
+          "title": "Get Results",
+          "description": "Receive detailed diagnostic results and recommendations for next steps."
+        }
+      },
+      "cta": {
+        "title": "Ready for diagnosis?",
+        "description": "Start using SkiSen today to better understand your skin condition.",
+        "button": "Start Diagnosis"
+      }
+    },
+    "diagnosis": {
+      "title": "Dermatology Diagnosis",
+      "upload": {
+        "title": "Upload an image for diagnosis",
+        "description": "Drag and drop an image here, or click the button below to select an image from your device",
+        "uploadButton": "Upload Image",
+        "captureButton": "Take Photo",
+        "formats": "We only support JPG, PNG, and HEIC formats. Maximum size 10MB."
+      },
+      "analyzing": {
+        "title": "Analyzing Image",
+        "description": "Our AI is processing the image and comparing it with thousands of cases to provide the most accurate diagnosis."
+      },
+      "ready": {
+        "title": "Ready to analyze",
+        "description": "Press the \"Analyze Now\" button to start the diagnostic process.",
+        "button": "Analyze Now"
+      },
+      "result": {
+        "accuracy": "accuracy",
+        "symptoms": "Symptoms",
+        "treatment": "Treatment",
+        "doctorWarning": {
+          "title": "Medical consultation needed",
+          "description": "This diagnostic result should be confirmed by a dermatologist."
+        },
+        "learnMore": "Learn more about { predicted_label }",
+        "askAI": "Ask Doctor AI about this condition",
+        "uploadAnother": "Upload another image",
+        "analyzeAgain": "Analyze again",
+        "visualExplanation": "Visual Explanation",
+        "highlightedRegionsText": "The highlighted regions in the image show the most important areas used by the model to identify { predicted_label }. These areas are where the model found key features related to the disease.",
+        "detectedImage": "Detected Image",
+        "detectedImageDescription": "This is the image processed by our AI system, with areas of interest highlighted.",
+        "detailedInfo": "Detailed Information",
+        "references": "References",
+        "loading": "Loading..."  
+      },
+      "chatModal": {
+        "title": "Ask AI Doctor about {condition}",
+        "welcome": "Hello! I'm an AI doctor that can help answer your questions about {condition}. What would you like to know?",
+        "defaultQuestion": "Tell me more about {condition}."
+      },
+      "consent": {
+        "title": "Consent Required",
+        "description": "Before analyzing your skin image, we need your explicit consent. Your image will be processed by our AI system to provide diagnostic results.",
+        "dataUsage": "We respect your privacy. Your images will be encrypted and processed securely. You can withdraw your consent at any time in your account settings.",
+        "accept": "I Consent",
+        "decline": "Decline"
+      },
+      "crop": {
+        "title": "Crop Image",
+        "description": "Adjust the crop box to select the area of the image you want to analyze.",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      },
+      "noCondition": {
+        "title": "No Condition Detected",
+        "description": "The image analysis did not detect any skin conditions. Try uploading another image.",
+        "button": "Upload Another Image"
+      }
+    },
+    "chatbot": {
+      "title": "AI Q&A",
+      "welcome": "Hello! I'm SkiSen's AI assistant. You can ask me any questions about skin diseases, symptoms, or skin care. I'll try to help you!",
+      "inputPlaceholder": "Enter your question...",
+      "sendButton": "Send",
+      "attachImage": "Attach image",
+      "hint": "You can ask questions about skin diseases, symptoms, or skin care. Attach images for more accurate diagnosis.",
+      "confidence": "confidence",
+      "generateImageButton": "Generate Image"
+    },
+    "contact": {
+      "title": "Contact & Support",
+      "form": {
+        "title": "Send us a message",
+        "name": "Full Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message",
+        "sendButton": "Send Message",
+        "sending": "Sending...",
+        "success": {
+          "title": "Message sent!",
+          "description": "Thank you for contacting us. We will respond as soon as possible."
+        }
+      },
+      "info": {
+        "title": "Contact Information",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "weekdays": "Monday - Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "closed": "Closed"
+      },
+      "faq": {
+        "title": "Frequently Asked Questions"
+      }
+    },
+    "footer": {
+      "description": "AI application for quick, accurate, and easy-to-use dermatology diagnosis.",
+      "links": "Links",
+      "policies": "Policies",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "faq": "FAQ",
+      "copyright": "All rights reserved."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last Updated",
+      "introduction": {
+        "title": "Introduction",
+        "content": "SkiSen is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our application and services."
+      },
+      "dataCollection": {
+        "title": "Information We Collect",
+        "content": "We may collect the following types of information:",
+        "items": {
+          "personal": "Personal Information: Name, email address, phone number when you register for an account or contact us.",
+          "medical": "Medical Information: Skin images and symptoms you provide for diagnosis.",
+          "usage": "Usage Information: How you interact with the application, features you use, and time spent on the application.",
+          "technical": "Technical Information: IP address, device type, browser version, and information about your operating system."
+        }
+      },
+      "dataUsage": {
+        "title": "How We Use Your Information",
+        "content": "We use your information for the following purposes:",
+        "items": {
+          "service": "To provide, maintain, and improve our services.",
+          "improvement": "To develop new features and improve user experience.",
+          "communication": "To communicate with you about services, updates, and important notices.",
+          "research": "For research and analysis to improve the accuracy of AI diagnoses."
+        }
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "content": "We implement reasonable security measures to protect your personal information from loss, unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure."
+      },
+      "dataSharing": {
+        "title": "Information Sharing",
+        "content": "We do not sell your personal information to third parties. We may share your information with third-party service providers who help us operate our services, comply with legal obligations, or protect our rights, property, or safety, or that of others."
+      },
+      "userRights": {
+        "title": "Your Rights",
+        "content": "Depending on applicable law, you may have the following rights regarding your personal information:",
+        "items": {
+          "access": "The right to access and receive a copy of your personal information.",
+          "correction": "The right to request correction of inaccurate or incomplete information.",
+          "deletion": "The right to request deletion of your personal information.",
+          "objection": "The right to object to processing of your personal information.",
+          "portability": "The right to receive your personal information in a structured, commonly used, and machine-readable format."
+        }
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions or concerns about our Privacy Policy, please contact us at:"
+      }
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "lastUpdated": "Last Updated",
+      "introduction": {
+        "title": "Introduction",
+        "content": "Welcome to SkiSen. By accessing or using our application and services, you agree to comply with and be bound by these Terms of Use. If you do not agree to any part of these terms, you are not permitted to use our services."
+      },
+      "services": {
+        "title": "Our Services",
+        "content": "SkiSen provides a platform that uses artificial intelligence to assist in diagnosing skin conditions based on images and information provided by users. Our services include AI diagnosis, consultation on dermatological issues, and related educational resources."
+      },
+      "medicalDisclaimer": {
+        "title": "Medical Disclaimer",
+        "content": "SkiSen's services are not intended to replace professional medical advice, diagnosis, or treatment. Our AI diagnostic results are for reference only and should not be considered as formal medical diagnoses.",
+        "warning": "Always consult with a physician or qualified healthcare provider for any health concerns."
+      },
+      "userAccounts": {
+        "title": "User Accounts",
+        "content": "When you create an account with us, you must provide accurate, complete, and up-to-date information. You are responsible for maintaining the security of your account and password, and you accept responsibility for all activities that occur under your account."
+      },
+      "intellectualProperty": {
+        "title": "Intellectual Property",
+        "content": "The service and its contents, including but not limited to text, graphics, logos, icons, images, software, and source code, are the property of SkiSen or our content suppliers and are protected by intellectual property laws."
+      },
+      "userContent": {
+        "title": "User Content",
+        "content": "By uploading or sharing content through our services, you grant SkiSen a non-exclusive, royalty-free, transferable, sub-licensable right to use, copy, modify, distribute, and display such content for the purpose of providing and improving our services."
+      },
+      "prohibitedUses": {
+        "title": "Prohibited Uses",
+        "content": "You may not use our services for any illegal or prohibited purpose. Prohibited uses include:",
+        "items": {
+          "illegal": "Using the services for any unlawful activity.",
+          "harmful": "Posting or transmitting content that is harmful, threatening, abusive, harassing, defamatory, pornographic, or offensive.",
+          "impersonation": "Impersonating any person or entity.",
+          "interference": "Interfering with or disrupting the services or servers."
+        }
+      },
+      "termination": {
+        "title": "Termination",
+        "content": "We may terminate or suspend your access to the services immediately, without prior notice, for any reason whatsoever, including without limitation if you breach the Terms of Use."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "We may modify these Terms of Use from time to time. We will notify you of any material changes by posting a notice on our website or sending you an email."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions about these Terms of Use, please contact us at:"
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "accuracy": {
+          "question": "How accurate is SkiSen?",
+          "answer": "SkiSen uses advanced AI models trained on millions of dermatological images, with an average accuracy of over 90% for common skin conditions. However, diagnostic results are for reference only and do not replace the opinion of a dermatologist."
+        },
+        "privacy": {
+          "question": "Is my data secure?",
+          "answer": "We take your privacy seriously. All images are encrypted and processed securely. We do not store your images unless you consent to their use for improving our AI model. You can view our full privacy policy for more details."
+        },
+        "mobile": {
+          "question": "Can I use SkiSen on mobile devices?",
+          "answer": "Yes, SkiSen is designed to work on all devices, including mobile phones, tablets, and desktop computers. Our interface automatically adjusts to provide the best experience on any screen size."
+        },
+        "conditions": {
+          "question": "What skin conditions can SkiSen diagnose?",
+          "answer": "SkiSen can identify over 50 common skin conditions, including eczema, psoriasis, acne, tinea, melanoma, and many others. We continuously update our AI model to expand the list of diagnosable conditions."
+        },
+        "bestResults": {
+          "question": "How can I get the most accurate diagnosis?",
+          "answer": "For the most accurate results, take clear photos in natural lighting, focusing on the affected skin area. Avoid using filters or editing the images. If possible, take multiple angles and provide information about accompanying symptoms."
+        },
+        "cost": {
+          "question": "Is SkiSen free to use?",
+          "answer": "SkiSen offers both free and premium versions. The free version allows you to perform a limited number of diagnoses per month. The premium version provides unlimited diagnoses, more in-depth consultations, and additional features."
+        },
+        "languages": {
+          "question": "What languages does SkiSen support?",
+          "answer": "Currently, SkiSen supports Vietnamese and English. We are working to add more languages in the near future."
+        },
+        "offline": {
+          "question": "Can I use SkiSen without an internet connection?",
+          "answer": "No, SkiSen requires an internet connection to analyze images and provide diagnoses. This is because our AI model runs on cloud servers to ensure the highest accuracy and continuous updates."
+        }
+      }
+    }
+  }
+  
+  

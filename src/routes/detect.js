@@ -21,5 +21,6 @@ router.get('/', DetectController.index);
 router.post('/predict', upload.single('image'), DetectController.predict);
 router.post('/explain', DetectController.explain);
 router.post('/chat', DetectController.chat);
+router.post('/generate-image', DetectController.generateImage);
 
 export default router;
