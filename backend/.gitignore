@@ -1,0 +1,39 @@
+# Bỏ qua thư mục models và venv
+/api/models/
+/api/venv/
+
+# Bỏ qua các tệp liên quan đến Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Bỏ qua các tệp môi trường ảo khác (nếu có)
+env/
+venv/
+
+# Bỏ qua các thư viện Node.js
+/node_modules/
+/package-lock.json
+/yarn.lock
+
+# Bỏ qua các tệp hệ thống
+.DS_Store
+Thumbs.db
+
+# Bỏ qua file log, cache và database tạm thời
+*.log
+*.sqlite3
+*.db
+*.env
+*.config.json
+
+# Bỏ qua VSCode settings (nếu bạn dùng VSCode)
+.vscode/
+
+# Bỏ qua các file build của frontend (nếu có)
+dist/
+build/
+
+
+.env
