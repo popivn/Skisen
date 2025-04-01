@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \
     git \
+    build-essential \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Tạo thư mục làm việc
@@ -20,6 +22,9 @@ RUN pip install --upgrade pip && \
 
 # Copy mã nguồn
 COPY . .
+
+# Tạo thư mục static nếu chưa tồn tại
+RUN mkdir -p static/gradcam
 
 # Expose port
 EXPOSE 5000
