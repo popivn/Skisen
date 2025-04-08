@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: riceguard-frontend
+    name: skisen-frontend
     env: node
     plan: free
     buildCommand: |
@@ -11,7 +11,7 @@ services:
       yarn start
 
   - type: web
-    name: riceguard-backend
+    name: skisen-backend
     env: node
     plan: free
     buildCommand: |
@@ -22,7 +22,7 @@ services:
       yarn start
 
   - type: web
-    name: riceguard-api
+    name: skisen-api
     env: python
     plan: free
     buildCommand: |
