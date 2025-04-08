@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: riceguard-ui
+    env: node
+    plan: free
+    buildCommand: |
+      cd ui
+      npm install
+    startCommand: |
+      cd ui
+      npm run dev
+    envVars:
+      - key: PORT
+        value: 3000
+
+  - type: web
+    name: riceguard-api
+    env: python
+    plan: free
+    buildCommand: |
+      cd api
+      pip install -r requirements.txt
+    startCommand: |
+      cd api
+      uvicorn app:app --host 0.0.0.0 --port $PORT --reload
