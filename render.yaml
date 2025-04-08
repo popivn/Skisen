@@ -1,29 +1,29 @@
 services:
   - type: web
     name: skisen-frontend
-    env: node
+    runtime: node
     plan: free
     buildCommand: |
       cd frontend
-      yarn install
+      npm install
     startCommand: |
       cd frontend
-      yarn start
+      npm run start
 
   - type: web
     name: skisen-backend
-    env: node
+    runtime: node
     plan: free
     buildCommand: |
       cd backend
-      yarn install
+      npm install
     startCommand: |
       cd backend
-      yarn start
+      npm run start
 
   - type: web
     name: skisen-api
-    env: python
+    runtime: python
     plan: free
     buildCommand: |
       cd api
