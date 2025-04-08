@@ -49,6 +49,9 @@ export default defineConfig({
     cors: true,
     allowedHosts: ['.ngrok-free.app', 'localhost'],
   },
+  preview: {
+    allowedHosts: ['skisen-frontend.onrender.com']
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
