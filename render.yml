@@ -1,17 +1,28 @@
 services:
   - type: web
-    name: riceguard-ui
+    name: riceguard-frontend
     env: node
     plan: free
     buildCommand: |
-      cd ui
-      npm install
+      cd frontend
+      npm i
     startCommand: |
-      cd ui
+      cd frontend
       npm run dev
     envVars:
       - key: PORT
         value: 3000
+
+  - type: web
+    name: riceguard-backend
+    env: node
+    plan: free
+    buildCommand: |
+      cd backend
+      npm i
+    startCommand: |
+      cd backend
+      npm run dev
 
   - type: web
     name: riceguard-api
@@ -22,4 +33,4 @@ services:
       pip install -r requirements.txt
     startCommand: |
       cd api
-      uvicorn app:app --host 0.0.0.0 --port $PORT --reload
+      uvicorn app:app --host 0.0.0.0 --port 5000 --reload
