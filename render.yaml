@@ -5,13 +5,10 @@ services:
     plan: free
     buildCommand: |
       cd frontend
-      npm i
+      yarn install
     startCommand: |
       cd frontend
-      npm run dev
-    envVars:
-      - key: PORT
-        value: 3000
+      yarn start
 
   - type: web
     name: riceguard-backend
@@ -19,10 +16,10 @@ services:
     plan: free
     buildCommand: |
       cd backend
-      npm i
+      yarn install
     startCommand: |
       cd backend
-      npm run dev
+      yarn start
 
   - type: web
     name: riceguard-api
@@ -33,4 +30,4 @@ services:
       pip install -r requirements.txt
     startCommand: |
       cd api
-      uvicorn app:app --host 0.0.0.0 --port 5000 --reload
+      uvicorn app:app --host 0.0.0.0 --port 10000 --reload
